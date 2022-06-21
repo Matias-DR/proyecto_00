@@ -1,1 +1,16 @@
-<p>products works!</p>
+<!-- <mat-grid-list cols="3" rowHeight="1:1.4">
+	<mat-grid-tile *ngFor="let product of products"> -->
+		<!--
+		(<emisor>)="<método>($event)":
+		<emisor>: Entidad emisora de información tal como la ejecución de un evento
+		<método>: Método del componente donde se defina esta sentencia
+		-->
+		<!-- <app-product [product]="product" (add_to_cart)="add_to_cart_event($event)">
+		</app-product>
+	</mat-grid-tile>
+</mat-grid-list> -->
+<div class="product-list">
+	<div class="product" *ngFor="let product of products">
+		<app-product [product]="product" (add_to_cart)="add_to_cart_event($event)"></app-product>
+	</div>
+</div>

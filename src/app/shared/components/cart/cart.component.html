@@ -1,0 +1,11 @@
+<!-- Cuando una variable contiene un valor, así sea "null", lo que el contenedor "ng-container" contenga, se visualizará.
+Si no se quiere mostrar lo que contiene a pesar de la condición, puede indicarse otro "ng-container" el cuál si bien se mostrará, nos permite con otra condición ocultar lo que se desee. -->
+<ng-container *ngIf="{product_quantity: product_quantity$ | async} as data_cart">
+    <!-- Como en este caso product_quantity inicialmente contiene valor nulo, y queremos que el carrito junto con su contador no se muestren desdel inicio, podemos indicar condiciones que nos oculten el elemnto hasta por ejemplo determinado evento.
+    Entonces ahora preguntamos "si product_quantity: ..." -->
+    <ng-container *ngIf="data_cart.product_quantity">
+        <button mat-icon-button matBadge="{{data_cart.product_quantity}}" matBadgePosition="before" matBadgeColor="accent">
+            <mat-icon>shopping_cart</mat-icon>
+        </button>
+    </ng-container>
+</ng-container>

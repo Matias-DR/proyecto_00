@@ -1,0 +1,16 @@
+<p>
+	<mat-toolbar color="primary">
+		<button mat-icon-button class="icon">
+			<mat-icon>menu</mat-icon>
+		</button>
+		<a class="home-button" [routerLink]="['/']"><span>Proyecto00</span></a>
+		<span class="spacer"></span>
+		<app-cart class="cart" (click)="checkout_redirects()"></app-cart>
+		<button mat-icon-button class="icon">
+			<mat-icon>account_circle</mat-icon>
+		</button>
+		<button mat-icon-button class="icon">
+			<mat-icon>exit_to_app</mat-icon>
+		</button>
+	</mat-toolbar>
+</p>

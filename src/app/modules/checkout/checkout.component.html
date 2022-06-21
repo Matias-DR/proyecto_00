@@ -1,0 +1,40 @@
+<div class="form-container">
+    <form class="form" action="">
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <!-- [(ngModel)]: Con esta propiedad podemos permitirnos traer el dato de una variable desde el componente -->
+            <input matInput placeholder="1" required [(ngModel)]="model.name" name="name" #name="ngModel">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Ingrese el nombre</mat-hint>
+            <!-- Podemos determinar la aparición de un error (mat-error) ante determinada condición (ngIf) -->
+            <mat-error *ngIf="name">Ingrese el nombre</mat-error>
+        </mat-form-field>
+        <div class="shippin-container">
+            <mat-radio-group>
+                <mat-radio-button *ngFor="let shipping_mode of model.shipping_modes" [value]="shipping_mode"
+                    (change)="on_shipping_mode_change()">
+                    {{shipping_mode}}
+                </mat-radio-button>
+            </mat-radio-group>
+            <ng-container *ngIf="shipping">
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="1" required [(ngModel)]="model.shipping_address"
+                        name="shipping_address" #shipping_address="ngModel">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>Ingrese la dirección</mat-hint>
+                    <mat-error *ngIf="shipping_address">La dirección es requerida</mat-error>
+                </mat-form-field>
+            </ng-container>
+            <ng-container *ngIf="!shipping">
+                <mat-select>
+                    <mat-option *ngFor="let subsidiary of model.subsidiarys" [value]="subsidiary"
+                        (click)="on_subsidiary_change(subsidiary)">
+                        {{subsidiary}}
+                    </mat-option>
+                </mat-select>
+            </ng-container>
+        </div>
+    </form>
+    <button mat-raised-button [disabled]="!enable_to_buy ? true : false">Comprar</button>
+</div>
