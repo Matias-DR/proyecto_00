@@ -5,4 +5,5 @@ export interface Product {
 	description: string;
 	category_id: number;
 	stock: number;
+	quantity: number;
 }

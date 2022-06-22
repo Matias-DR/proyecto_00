@@ -19,6 +19,9 @@ import { ProductComponent } from './modules/products/product/product.component';
 		HeaderComponent,
 		ProductComponent
 	],
+	exports: [
+		ProductComponent
+	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
