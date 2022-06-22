@@ -20,7 +20,7 @@ export class CartService {
 	private total_price_subject = new BehaviorSubject<number>(0)
 	private cartSubject = new BehaviorSubject<Product[]>([])
 
-	constructor() {}
+	constructor() { }
 
 	/**
 	 * Devuelve el observador de cantidad de productos enlistados en el carro
@@ -38,31 +38,27 @@ export class CartService {
 		return this.total_price_subject.asObservable()
 	}
 
-	private calculate_total_price(): number {
-		return this.products.reduce(
-			(acc, next) => acc += next.price * next.quantity, 0
-		)
-	}
-
 	/**
 	 * Actualiza el valor sobre el observador de precio total
 	 */
 	private update_total_price(): void {
-		this.total_price_subject.next(this.calculate_total_price())
+		this.total_price_subject.next(
+			this.products.reduce(
+				(acc, product) => acc + product.price * product.quantity, 0
+			)
+		)
 	}
 
 	/**
 	 * Actualiza el valor sobre el observador de cantidad
 	 */
-	private add_quantity_to_product(product: Product): void {
-		console.log(product)
-		let _product = this.products.find(({id}) => id === product.id)
-		_product.quantity ? _product.quantity++ : product.quantity = 1 // No funciona porque el producto todavía no tiene el atributo 'quantity'
-		console.log(product.quantity)
+	private add_product_to_products(product: Product): void {
+		try {this.products.find(({ id }) => id === product.id)!.quantity++}
+		catch {this.products.push({ ...product, quantity: 1 })}
 	}
 
 	private update_quantity(): void {
-		this.quantity_subject.next(this.products.length)
+		this.quantity_subject.next(this.products.reduce((acc, product) => acc + product.quantity, 0))
 	}
 
 	/**
@@ -70,14 +66,13 @@ export class CartService {
 	 * Se ejecuta automáticamente cuando el usuario selecciona un producto para agregar al carro
 	 */
 	add_product_to_cart(product: Product): void {
-		this.products.push(product);
-		this.add_quantity_to_product(product);
+		this.add_product_to_products(product);
 		this.update_total_price()
 		this.update_quantity();
 		this.cartSubject.next(this.products);
 	}
 
 	del_product_in_cart(product: Product): void {
-		
+
 	}
 }

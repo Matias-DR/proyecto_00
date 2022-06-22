@@ -12,9 +12,9 @@
                 <!-- En este caso, 'products' requiere la propiedad 'async' junto con un pipe porque no es un vector, sino mas bien un obserbable/observador que contiene datos del tipo vector de productos. En ese entonces, siempre que se trate a un observable/observador, se lo indica como tipo asincrónico -->
                 <tr *ngFor="let product of products$ | async; index as i">
                     <td>{{product.name}}</td>
-                    <td>{{i+1}}</td>
+                    <td>{{product.quantity}}</td>
                     <td>{{product.price}}</td>
-                    <td>{{product.price * (i+1)}}</td>
+                    <td>{{product.price * product.quantity}}</td>
                 </tr>
                 <td>Total: {{total$ | async | currency}}</td>
         </tbody>
