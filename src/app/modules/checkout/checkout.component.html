@@ -1,5 +1,5 @@
 <div class="form-container">
-    <form class="form" action="">
+    <form class="form" (ngSubmit)="buy()" #checkoutForm="ngForm">
         <mat-form-field appearance="fill">
             <mat-label>Nombre</mat-label>
             <!-- [(ngModel)]: Con esta propiedad podemos permitirnos traer el dato de una variable desde el componente -->
@@ -35,7 +35,7 @@
                 </mat-select>
             </ng-container>
         </div>
+        <button mat-raised-button [disabled]="!checkoutForm.form.valid">Comprar</button>
     </form>
-    <button mat-raised-button [disabled]="!enable_to_buy ? true : false">Comprar</button>
 </div>
 <app-detail></app-detail>

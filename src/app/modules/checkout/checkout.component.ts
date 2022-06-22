@@ -15,9 +15,11 @@ export class CheckoutComponent implements OnInit {
 	}
 	shipping: boolean = false;
 	subsidiary_selected: string = '';
-	enable_to_buy: boolean = true;
 
 	constructor() { }
+
+	ngOnInit(): void {
+	}
 
 	on_shipping_mode_change(): void {
 		this.shipping = !this.shipping
@@ -28,7 +30,7 @@ export class CheckoutComponent implements OnInit {
 		console.log(this.subsidiary_selected)
 	}
 
-	ngOnInit(): void {
+	buy(): void {
+		console.log('buy')
 	}
-
 }
