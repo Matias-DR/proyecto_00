@@ -10,10 +10,12 @@
             <mat-error *ngIf="name">Ingrese el nombre</mat-error>
         </mat-form-field>
         <div class="shippin-container">
-            <mat-radio-group>
-                <mat-radio-button *ngFor="let shipping_mode of model.shipping_modes" [value]="shipping_mode"
-                    (change)="on_shipping_mode_change()">
-                    {{shipping_mode}}
+            <mat-radio-group (change)="on_shipping_mode_change()">
+                <mat-radio-button value="">
+                    Retiro por local
+                </mat-radio-button>
+                <mat-radio-button>
+                    Envío a domicilio
                 </mat-radio-button>
             </mat-radio-group>
             <ng-container *ngIf="shipping">
