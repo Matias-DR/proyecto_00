@@ -1,43 +1,47 @@
 <div class="form-container">
-    <form class="form" (ngSubmit)="buy()" #checkoutForm="ngForm">
-        <mat-form-field appearance="fill">
-            <mat-label>Nombre</mat-label>
-            <!-- [(ngModel)]: Con esta propiedad podemos permitirnos traer el dato de una variable desde el componente -->
-            <input matInput placeholder="1" required [(ngModel)]="model.name" name="name" #name="ngModel">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            <mat-hint>Ingrese el nombre</mat-hint>
-            <!-- Podemos determinar la aparición de un error (mat-error) ante determinada condición (ngIf) -->
-            <mat-error *ngIf="name">Ingrese el nombre</mat-error>
-        </mat-form-field>
-        <div class="shippin-container">
-            <mat-radio-group (change)="on_shipping_mode_change()">
-                <mat-radio-button value="">
-                    Retiro por local
-                </mat-radio-button>
-                <mat-radio-button>
-                    Envío a domicilio
-                </mat-radio-button>
-            </mat-radio-group>
-            <ng-container *ngIf="shipping">
-                <mat-form-field appearance="fill">
-                    <mat-label>Nombre</mat-label>
-                    <input matInput placeholder="1" required [(ngModel)]="model.shipping_address"
-                        name="shipping_address" #shipping_address="ngModel">
-                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                    <mat-hint>Ingrese la dirección</mat-hint>
-                    <mat-error *ngIf="shipping_address">La dirección es requerida</mat-error>
-                </mat-form-field>
-            </ng-container>
-            <ng-container *ngIf="!shipping">
-                <mat-select>
-                    <mat-option *ngFor="let subsidiary of model.subsidiarys" [value]="subsidiary"
-                        (click)="on_subsidiary_change(subsidiary)">
-                        {{subsidiary}}
-                    </mat-option>
-                </mat-select>
-            </ng-container>
-        </div>
-        <button mat-raised-button [disabled]="!checkoutForm.form.valid">Comprar</button>
-    </form>
+	<form class="form" (ngSubmit)="buy(checkoutForm)" #checkoutForm="ngForm">
+		<mat-form-field appearance="fill">
+			<mat-label>Nombre</mat-label>
+			<!-- [(ngModel)]: Con esta propiedad podemos permitirnos traer el dato de una variable desde el componente -->
+			<input matInput placeholder="1" required [(ngModel)]="model.name" name="name" #name="ngModel">
+			<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+			<mat-hint>Ingrese el nombre</mat-hint>
+			<!-- Podemos determinar la aparición de un error (mat-error) ante determinada condición (ngIf) -->
+			<mat-error *ngIf="name">Ingrese el nombre</mat-error>
+		</mat-form-field>
+		<mat-radio-group>
+			<mat-radio-button value="Retiro por local" (change)="on_shipping_mode_change(false)" checked>
+				Retiro por local
+			</mat-radio-button>
+			<mat-radio-button value="Envío a domicilio" (change)="on_shipping_mode_change(true)">
+				Envío a domicilio
+			</mat-radio-button>
+		</mat-radio-group>
+		<ng-container *ngIf="shipping; else show_stores">
+			<mat-form-field appearance="fill">
+				<mat-label>Dirección</mat-label>
+				<input matInput placeholder="Dirección" required [(ngModel)]="model.shipping_address"
+					name="shipping_address" #shipping_address="ngModel">
+				<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+				<mat-hint>Ingrese la dirección</mat-hint>
+				<mat-error *ngIf="shipping_address">La dirección es requerida</mat-error>
+			</mat-form-field>
+			<mat-form-field appearance="fill">
+				<mat-label>Ciudad</mat-label>
+				<input matInput placeholder="Ciudad" required [(ngModel)]="model.city" name="city" #city="ngModel">
+				<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+				<mat-hint>Ingrese la ciudad</mat-hint>
+				<mat-error *ngIf="shipping_address">La ciudad es requerida</mat-error>
+			</mat-form-field>
+		</ng-container>
+		<ng-template #show_stores>
+			<mat-select name="store" #store="ngModel" [(ngModel)]="model.store">
+				<mat-option [value]="a_store" *ngFor="let a_store of stores">
+					{{a_store.name}}, {{a_store.openingHours}}
+				</mat-option>
+			</mat-select>
+		</ng-template>
+		<button mat-raised-button [disabled]="!checkoutForm.form.valid">Comprar</button>
+	</form>
 </div>
 <app-detail></app-detail>
