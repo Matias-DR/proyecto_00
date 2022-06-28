@@ -1,9 +1,20 @@
 Estructura de directorios: https://www.youtube.com/watch?v=ugn6fM5Rc-E
 
-- NOTA: Cuando algún componente dentro de un módulo se lo quiere ver desde otro módulo (desde afuera de su propia caja), se lo exporta en el vector de exportaciones de su archivo de módulo
+- Cuando algún componente dentro de un módulo se lo quiere ver desde otro módulo (desde afuera de su propia caja), se lo exporta en el vector de exportaciones de su archivo de módulo
 
-- NOTA: Cada módulo conviene que tenga su propio ruter
+- Cada módulo conviene que tenga su propio ruter
 
-- NOTA: 'shared' es una carpeta con servicios, componentes, etc COMPARTIDOS entre todos los modulos
+- 'shared' es una carpeta con servicios, componentes, etc COMPARTIDOS entre todos los modulos
 
-- NOTAL: Cada módulo conviene cargarlo de manera vaga
+- Cada módulo conviene cargarlo de manera vaga
+
+Mecánica de enlaces entre módulos y componentes: https://www.youtube.com/watch?v=K6XsI0svtwE
+
+- Desde el router de un modulo, pueden indicarse los enlaces hacia los componentes dentro del mismo con la forma '{path:'', children: [{path: '<nombre_componente>', component: <componente>}]' sober la variable contenedora de enlaces
+
+- Puede enlazarce un componente de manera directa sobre html con el elemento 'a' y el parámetro 'routerLink' de la siguiente forma: '<a routerLink="<link>"><...></a>'
+
+
+CLI: https://angular.io/cli/
+
+- Creación de módulo con router: ng g m <nombre> --routing
