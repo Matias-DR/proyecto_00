@@ -1,0 +1,9 @@
+Estructura de directorios: https://www.youtube.com/watch?v=ugn6fM5Rc-E
+
+- NOTA: Cuando algún componente dentro de un módulo se lo quiere ver desde otro módulo (desde afuera de su propia caja), se lo exporta en el vector de exportaciones de su archivo de módulo
+
+- NOTA: Cada módulo conviene que tenga su propio ruter
+
+- NOTA: 'shared' es una carpeta con servicios, componentes, etc COMPARTIDOS entre todos los modulos
+
+- NOTAL: Cada módulo conviene cargarlo de manera vaga
