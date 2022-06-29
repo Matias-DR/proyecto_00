@@ -5,7 +5,8 @@ import { CashierRoutingModule } from './cashier-routing.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     CashierRoutingModule

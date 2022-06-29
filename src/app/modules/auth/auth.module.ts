@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
-import { SigninComponent } from './signin/signin.component';
-import { SignupComponent } from './signup/signup.component';
+import { SignInComponent } from './signin/sign-in.component';
+import { SignUpComponent } from './signup/sign-up.component';
 import { PwdResetComponent } from './pwd-reset/pwd-reset.component';
 
 
 @NgModule({
   declarations: [
-    SigninComponent,
-    SignupComponent,
+    SignInComponent,
+    SignUpComponent,
     PwdResetComponent
   ],
   imports: [
