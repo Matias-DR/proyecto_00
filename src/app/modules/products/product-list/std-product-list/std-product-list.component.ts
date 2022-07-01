@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Product } from '../../product-types/interface/product';
+import { ProductService } from '../../service/product.service';
 import { ProductList } from '../interface/product-list';
-import { ProductFactory } from 'src/app/modules/products/products/product-factories/interface/product-factory';
+import { tap } from 'rxjs/operators';
 
 
 @Component({
@@ -9,12 +11,19 @@ import { ProductFactory } from 'src/app/modules/products/products/product-factor
     styleUrls: ['./std-product-list.component.sass']
 })
 export class StdProductListComponent implements ProductList {
-    protected readonly _productFactory!: ProductFactory;
+    products!: Product[];
 
-    constructor() { }
+    constructor(
+        private productService: ProductService
+    ) { }
 
     ngOnInit(): void {
+        this.getProducts();
     }
-
-    get productFactory(): ProductFactory { return this._productFactory }
+    
+    getProducts(): void {
+        this.productService.getProducts().pipe(
+            tap((res) => { this.products = res })
+        ).subscribe()
+    }
 }
