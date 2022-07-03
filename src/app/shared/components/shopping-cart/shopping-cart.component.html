@@ -1,7 +1,7 @@
 <ng-container *ngIf="{productsQuantity: productsQuantity$ | async} as data_cart">
     <ng-container *ngIf="data_cart.productsQuantity">
         <button mat-icon-button matBadge="{{data_cart.productsQuantity}}" matBadgePosition="before"
-            matBadgeColor="accent" [routerLink]="['cashier']">
+            matBadgeColor="accent" [routerLink]="['cashier']" (click)="goToCashierEvent()">
             <mat-icon>shopping_cart</mat-icon>
         </button>
     </ng-container>

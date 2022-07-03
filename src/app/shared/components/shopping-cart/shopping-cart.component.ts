@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ShoppingCartComponent implements OnInit {
     productsQuantity$: Observable<number> = this.shoppingCartService.productsQuantity$;
+    @Output() goToCashier: EventEmitter<any> = new EventEmitter()
 
     constructor(
         private shoppingCartService: ShoppingCartService,
@@ -17,5 +18,9 @@ export class ShoppingCartComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+    }
+
+    goToCashierEvent(): void {
+        this.goToCashier.emit()
     }
 }

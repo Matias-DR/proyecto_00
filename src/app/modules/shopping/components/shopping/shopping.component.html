@@ -1,7 +1,4 @@
 <app-toolbar></app-toolbar>
-<ng-container *ngIf="router.isActive('/shopping', true); else cashier">
-    <app-shopping-product-list></app-shopping-product-list>
-</ng-container>
-<ng-template #cashier>
-    <app-cashier></app-cashier>
-</ng-template>
+<div *ngIf="shopping; then product_list else cashier"></div>
+<ng-template #product_list><app-shopping-product-list></app-shopping-product-list></ng-template>
+<ng-template #cashier><app-cashier></app-cashier></ng-template>

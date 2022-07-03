@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CashierComponent } from './components/cashier/cashier.component';
 import { ShoppingComponent } from './components/shopping/shopping.component';
 
 const routes: Routes = [
     {
         path: '',
         children: [
-            { path: '', component: ShoppingComponent },
-            // { path: 'cashier', component: CashierComponent}
+            { path: '', component: ShoppingComponent }
         ]
     },
     // Es correcto direccionar ahí mismo?

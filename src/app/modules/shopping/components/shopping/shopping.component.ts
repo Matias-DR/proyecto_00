@@ -11,6 +11,7 @@ import { Product } from '../product-types/interface/product'
 })
 export class ShoppingComponent implements OnInit {
     products: Product[] = [];
+    shopping: boolean = true;
 
     constructor(
         private productsService: ProductsService,
