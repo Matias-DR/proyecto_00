@@ -1,0 +1,3 @@
+<ng-container *ngFor="let product of products">
+    <app-shopping-product [values]="product" (addMe)="addProductToCart($event)"></app-shopping-product>
+</ng-container>

@@ -1,1 +1,7 @@
-<app-std-product-list></app-std-product-list>
+<app-toolbar></app-toolbar>
+<ng-container *ngIf="router.isActive('/shopping', true); else cashier">
+    <app-shopping-product-list></app-shopping-product-list>
+</ng-container>
+<ng-template #cashier>
+    <app-cashier></app-cashier>
+</ng-template>

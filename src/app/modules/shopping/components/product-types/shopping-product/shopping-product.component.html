@@ -10,8 +10,14 @@
         <p>{{values.description}}</p>
     </mat-card-content>
     <mat-card-actions>
-        <mat-icon>thumb_up_off_alt</mat-icon>
-        <mat-icon>add_shopping_cart</mat-icon>
-        <mat-icon>share</mat-icon>
+        <button mat-button class="container-item">
+            <mat-icon>thumb_up_off_alt</mat-icon>
+        </button>
+        <button mat-button class="container-item" (click)="addMeEvent()">
+            <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+        <button mat-button class="container-item">
+            <mat-icon>share</mat-icon>
+        </button>
     </mat-card-actions>
 </mat-card>

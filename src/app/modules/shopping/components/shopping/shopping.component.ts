@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../product-types/interface/product'
@@ -12,12 +13,15 @@ export class ShoppingComponent implements OnInit {
     products: Product[] = [];
 
     constructor(
-        private productsService: ProductsService
+        private productsService: ProductsService,
+        private _router: Router
     ) { }
 
     ngOnInit(): void {
         this.getProducts();
     }
+
+    get router(): Router { return this._router }
 
     getProducts(): void {
         this.productsService.getProducts().pipe(
