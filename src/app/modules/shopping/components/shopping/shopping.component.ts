@@ -29,4 +29,8 @@ export class ShoppingComponent implements OnInit {
             tap((res: Product[]) => this.products = res)
         ).subscribe()
     }
+
+    goToCashierEvent(): void {
+        this.shopping = !this.shopping
+    }
 }

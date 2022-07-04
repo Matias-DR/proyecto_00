@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
     <span><a class="home-button" [routerLink]="['/']">Proyecto01</a></span>
     <span class="example-spacer"></span>
-    <app-shopping-cart></app-shopping-cart>
+    <app-shopping-cart (goToCashier)="goToCashieEvent()"></app-shopping-cart>
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Account profile">
         <mat-icon>account_circle</mat-icon>
     </button>

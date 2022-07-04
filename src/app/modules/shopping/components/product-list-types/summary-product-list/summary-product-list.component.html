@@ -1,1 +1,3 @@
-<p>summary-product-list works!</p>
+<ng-container *ngFor="let product of products">
+    <app-summary-product [values]="product"></app-summary-product>
+</ng-container>
