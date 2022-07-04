@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { tap } from 'rxjs';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
 import { Product } from '../../product-types/interface/product';
 import { ProductList } from '../interface/product-list';
@@ -11,16 +12,18 @@ import { ProductList } from '../interface/product-list';
 export class SummaryProductListComponent implements ProductList {
     products!: Product[];
 
+
     constructor(
         private shoppingCartService: ShoppingCartService
     ) { }
 
     ngOnInit(): void {
+        this.getProducts()
     }
 
     getProducts(): void {
-        this.shoppingCartService.getProducts().pipe(
-            tap((res: Product[]) => this.products = res)
+        this.shoppingCartService.productsInCart$.pipe(
+            tap((productsInCart) => this.products = productsInCart)
         ).subscribe()
     }
 }
