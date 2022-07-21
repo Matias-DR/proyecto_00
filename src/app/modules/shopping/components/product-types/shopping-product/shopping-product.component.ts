@@ -11,10 +11,10 @@ export class ShoppingProductComponent implements OnInit {
     @Input() values!: Product;
     @Output() addMe: EventEmitter<Product> = new EventEmitter<Product>()
 
-    constructor() { }
+    constructor(
+    ) { }
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 
     addMeEvent(): void {
         this.addMe.emit(this.values)

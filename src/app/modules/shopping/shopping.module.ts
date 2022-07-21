@@ -14,6 +14,7 @@ import { ShoppingComponent } from './components/shopping/shopping.component';
 import { ToolbarComponent } from 'src/app/shared/components/toolbar/toolbar.component';
 import { CashierComponent } from './components/cashier/cashier.component';
 import { ShoppingCartComponent } from '../../shared/components/shopping-cart/shopping-cart.component';
+import { SlideshowComponent } from '../../shared/components/slideshow/slideshow.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ShoppingCartComponent } from '../../shared/components/shopping-cart/sho
         ShoppingComponent,
         ToolbarComponent,
         CashierComponent,
-        ShoppingCartComponent
+        ShoppingCartComponent,
+        SlideshowComponent
     ],
     imports: [
         CommonModule,

@@ -1,0 +1,27 @@
+<div class="slideshow">
+
+    <div class="slider">
+        <div class="slide" id="slide-{{id}}-{{entrie[0]}}" *ngFor="let entrie of slides.entries()"
+            [style.opacity]="slidesOpacity[entrie[0]]">
+            <img src="{{entrie[1]}}">
+        </div>
+
+        <div class="menu">
+            <span class="left_option">
+                <button mat-mini-fab (click)="leftSlideSelection()">
+                    <mat-icon>chevron_left</mat-icon>
+                </button>
+            </span>
+            <span class="right_option">
+                <button mat-mini-fab (click)="rightSlideSelection()">
+                    <mat-icon>chevron_right</mat-icon>
+                </button>
+            </span>
+        </div>
+    </div>
+
+</div>
+
+<div class="slideshow">
+
+</div>

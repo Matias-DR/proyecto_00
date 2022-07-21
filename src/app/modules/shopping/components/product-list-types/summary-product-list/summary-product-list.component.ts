@@ -12,7 +12,6 @@ import { ProductList } from '../interface/product-list';
 export class SummaryProductListComponent implements ProductList {
     products!: Product[];
 
-
     constructor(
         private shoppingCartService: ShoppingCartService
     ) { }
