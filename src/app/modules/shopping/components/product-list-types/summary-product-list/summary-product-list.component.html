@@ -1,3 +1,7 @@
-<ng-container *ngFor="let product of products">
-    <app-summary-product [values]="product"></app-summary-product>
-</ng-container>
+<div class="form">
+    <h1 class="title">FORM</h1>
+</div>
+
+<div *ngFor="let product of products">
+    <app-summary-product [values]="product" (deleteMe)="deleteProduct($event)"></app-summary-product>
+</div>

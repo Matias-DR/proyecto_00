@@ -1,3 +1,12 @@
-.product {
-    max-width: 805px;
+.products {
+    margin-left: 10px;
+    display: grid;
+
+    // Repite columnas (grid-template-columns: repeat) la cantidad de veces igual a todas las que entren en pantalla (auto-fill) dependiendo del tamaño máximo y mínimo declarado para cada una (minmax)
+    grid-template-columns: repeat(auto-fill, minmax(400px, 8fr));
+
+    gap: 1rem;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
 }

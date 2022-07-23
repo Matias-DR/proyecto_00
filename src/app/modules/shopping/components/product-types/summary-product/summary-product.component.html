@@ -1,20 +1,20 @@
-<mat-card class="example-card">
-    <mat-card-title-group>
-        <mat-card-title>{{values.name}}</mat-card-title>
-        <mat-card-subtitle>{{values.price | currency}}</mat-card-subtitle>
-        <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-
-        <!--  -->
-        
-        <!--  -->
-
-    </mat-card-title-group>
-    <mat-card-content>
-        {{values.description}}
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button class="container-item">
+<div class="product">
+    <div class="product__presentation">
+        <h1 class="product__presentation__name">
+            {{values.name}}
+        </h1>
+        <p class="product__presentation__description">
+            {{values.description}}
+        </p>
+        <img class="product__presentation__img" src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+    </div>
+    <h2 class="product__price">
+        {{values.price | currency}}
+    </h2>
+    <div class="product__actions">
+        <button mat-button class="product__actions__delete_action" (click)="deleteMeEvent()">
             <mat-icon>delete</mat-icon>
         </button>
-    </mat-card-actions>
-</mat-card>
+        <input type="number" min="{{values.stock ? 1 : 0}}" max="{{values.stock}}" value="{{values.quantity}}">
+    </div>
+</div>

@@ -38,10 +38,35 @@ export class ShoppingCartService {
         )
     }
 
+    private updateCart(): void {
+        this.updateProductsTotalPrice();
+        this._productsInCart.next(this.products)
+    }
+
     addProductToCart(product: Product): void {
         this.addProduct(product);
         this.updateQuantity();
-        this.updateProductsTotalPrice();
-        this._productsInCart.next(this.products)
+        this.updateCart()
+    }
+
+    deleteProductInCart(product: Product): void {
+        console.log('productos antes', this.products)
+        console.log('total antes', this.productsTotalPrice$)
+
+        console.log('id producto', product.id)
+        this.products = this.products.splice(
+            this.products.findIndex(
+                (value) => {
+                    value.id = product.id;
+                    console.log(
+                        'id valor', value.id,
+                    )
+                }
+            ),
+            1
+        )
+        this.updateCart()
+        console.log('productos despues', this.products)
+        console.log('total despues', this.productsTotalPrice$)
     }
 }

@@ -21,8 +21,12 @@ export class SummaryProductListComponent implements ProductList {
     }
 
     getProducts(): void {
-        this.shoppingCartService.productsInCart$.pipe(
-            tap((productsInCart) => this.products = productsInCart)
-        ).subscribe()
+        this.shoppingCartService.productsInCart$.subscribe(
+            (productsInCart) => this.products = productsInCart
+        )
+    }
+
+    deleteProduct(product: Product): void {
+        this.shoppingCartService.deleteProductInCart(product)
     }
 }

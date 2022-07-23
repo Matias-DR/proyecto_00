@@ -1,0 +1,27 @@
+.product {
+    display: inline-block;
+    max-width: 400px;
+    max-height: 540px;
+    padding: 5px;
+    background-color: brown;
+    // HACER GRID O FLEX CON LA LISTA PARA QUE LOS PRODUCTOS SE DISTRIBUYAN UNIFORMEMENTE, Y, DARLES TANTO ANCHO COMO ALTO MIN Y MAX PARA QUE TODOS TENGAN MISMAS DIMENSIONES
+}
+
+.header {
+    background-color: violet
+}
+
+// .neame {}
+
+.price {
+    background-color: blue
+}
+
+.description {
+    background-color: red
+}
+
+.actions {
+    text-align: center;
+    background-color: green
+}
