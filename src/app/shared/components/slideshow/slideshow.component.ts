@@ -12,9 +12,7 @@ export class SlideshowComponent implements OnInit {
     @Input() id!: number;
     slidesOpacity!: number[]
 
-    constructor(
-        private router: Router
-    ) { }
+    constructor() { }
 
     ngOnInit(): void {
         this.applyOpacityToImages()
@@ -27,17 +25,7 @@ export class SlideshowComponent implements OnInit {
         this.slidesOpacity[0] = 1
     }
 
-    // slideSelection(slide_number: number): void {
-    //     const id: string = 'slide' + this.id + '-' + slide_number
-    //     location.hash = id
-    //     this.router.navigateByUrl('#' + id)
-    //     this.changeOpacityToSelectedImage(slide_number)
-    // }
-
     private changeOpacityToSelectedImage(slide_number: number, side: number): void {
-        // this.slidesOpacity = this.slidesOpacity.map(
-        //     (_, index) => index == slide_number ? 1 : 0
-        // )
         this.slidesOpacity[slide_number + side] = 1
         this.slidesOpacity[slide_number] = 0
     }

@@ -4,21 +4,30 @@
     max-height: 540px;
     padding: 5px;
     background-color: brown;
-    // HACER GRID O FLEX CON LA LISTA PARA QUE LOS PRODUCTOS SE DISTRIBUYAN UNIFORMEMENTE, Y, DARLES TANTO ANCHO COMO ALTO MIN Y MAX PARA QUE TODOS TENGAN MISMAS DIMENSIONES
 }
 
 .header {
-    background-color: violet
+    background-color: violet;
 }
 
-// .neame {}
+.name {
+    font-size: 2vw;
+    height: 64px;
+}
+
+.name,
+.description {
+    overflow: hidden;
+}
 
 .price {
     background-color: blue
 }
 
 .description {
-    background-color: red
+    font-size: 1vw;
+    background-color: red;
+    height: 60px;
 }
 
 .actions {
