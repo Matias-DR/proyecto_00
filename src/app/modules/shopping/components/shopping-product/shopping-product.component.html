@@ -1,0 +1,10 @@
+<div class="card" style="width: 18rem;">
+    <app-carousel [values]="{id: values.id, images: values.images}"></app-carousel>
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">{{values.description}}</p>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button type="button" class="btn btn-dark" (click)="addMe()">Añadir al carro</button>
+        </div>
+    </div>
+</div>
