@@ -7,6 +7,7 @@ import { ShoppingComponent } from './shopping.component';
 import { CarouselComponent } from 'src/app/shared/components/carousel/carousel.component';
 import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
 import { ShoppingCartComponent } from 'src/app/shared/components/shopping-cart/shopping-cart.component';
+import { ShoppingProductsComponent } from './components/shopping-products/shopping-products.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ShoppingCartComponent } from 'src/app/shared/components/shopping-cart/s
         ShoppingComponent,
         NavbarComponent,
         CarouselComponent,
-        ShoppingCartComponent
+        ShoppingCartComponent,
+        ShoppingProductsComponent
     ],
     imports: [
         CommonModule,

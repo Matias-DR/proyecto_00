@@ -1,11 +1,2 @@
-<!-- Header -->
 <app-navbar></app-navbar>
-
-<!-- Product list -->
-<div class="container text-center">
-    <div class="row">
-        <div class="col" *ngFor="let product of products">
-            <app-shopping-product [values]="product" (addMeEvent)="addProductToCart($event)"></app-shopping-product>
-        </div>
-    </div>
-</div>
+<router-outlet></router-outlet>
