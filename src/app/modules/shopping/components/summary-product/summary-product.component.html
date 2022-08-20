@@ -1,0 +1,20 @@
+<div class="card mb-3" style="max-width: 1040px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{{values.images[0]}}" class="img-fluid rounded-start">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{values.name}}</h5>
+                <p class="card-text">{{values.description}}</p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Cantidad</mat-label>
+                    <input matInput type="number" placeholder="Ejemplo: 1" min="1" max="{{values.stock}}">
+                    <!-- <span matSuffix>px</span> -->
+                    <!-- <mat-error *ngIf="fontSizeControl.invalid">Min size: 10px</mat-error> -->
+                </mat-form-field>
+                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+            </div>
+        </div>
+    </div>
+</div>
