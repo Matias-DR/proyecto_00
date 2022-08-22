@@ -45,10 +45,10 @@ export class ShoppingCartService {
         this.updateCart()
     }
 
-    deleteProductInCart(product: Product): void {
-        let index = this.products.indexOf(product)
+    deleteProductInCart(id: number): void {
+        let index = this.products.findIndex((product: Product) => product.id === id)
         if (index === 0) this.products.shift()
-        else this.products = this.products.splice(index - 1, 1)
+        else this.products.splice(index, 1)
         this.updateCart()
     }
 }

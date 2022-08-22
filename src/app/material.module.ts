@@ -5,7 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MatFormFieldModule } from '@angular/material/form-field'
         MatButtonModule,
         MatBadgeModule,
         MatCardModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatInputModule
     ],
     declarations: [],
     imports: [

@@ -1,7 +1,7 @@
 <ng-container *ngIf="isProductsRoute()">
     <div class="flex-container">
         <button mat-icon-button data-bs-toggle="modal" data-bs-target="#modal">
-            <mat-icon matBadge="{{productsQuantity$ | async}}">shopping_cart</mat-icon>
+            <mat-icon matBadge="{{productsQuantity$ | async}}" matBadgeOverlap="false">shopping_cart</mat-icon>
         </button>
     </div>
 
@@ -15,7 +15,7 @@
                 </div>
                 <div class="modal-body">
                     <ng-container *ngFor="let product of getProductsInCart()">
-                        <app-summary-product [values]="product"></app-summary-product>
+                        <app-summary-product [values]="product" (delMeEvent)="delProduct($event)"></app-summary-product>
                     </ng-container>
                 </div>
                 <div class="modal-footer">

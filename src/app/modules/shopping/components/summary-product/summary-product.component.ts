@@ -8,7 +8,7 @@ import { Product } from 'src/app/shared/interfaces/product';
 })
 export class SummaryProductComponent implements OnInit {
     @Input() values!: Product;
-    @Output() delMeEvent: EventEmitter<Product> = new EventEmitter<Product>()
+    @Output() delMeEvent: EventEmitter<number> = new EventEmitter<number>()
 
     constructor() { }
 
@@ -16,6 +16,6 @@ export class SummaryProductComponent implements OnInit {
     }
 
     delMe(): void {
-        this.delMeEvent.emit()
+        this.delMeEvent.emit(this.values.id)
     }
 }

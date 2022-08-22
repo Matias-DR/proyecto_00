@@ -9,11 +9,14 @@
                 <p class="card-text">{{values.description}}</p>
                 <mat-form-field appearance="fill">
                     <mat-label>Cantidad</mat-label>
-                    <input matInput type="number" placeholder="Ejemplo: 1" min="1" max="{{values.stock}}">
+                    <input matInput type="number" [(ngModel)]="values.quantity" #values.quantity="ngModel" min="1" max="{{values.stock}}">
                     <!-- <span matSuffix>px</span> -->
-                    <!-- <mat-error *ngIf="fontSizeControl.invalid">Min size: 10px</mat-error> -->
+                    <mat-error>Mínimo 1, máximo {{values.stock}}</mat-error>
                 </mat-form-field>
                 <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                <button mat-icon-button (click)="delMe()">
+                    <mat-icon>delete</mat-icon>
+                </button>
             </div>
         </div>
     </div>

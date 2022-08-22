@@ -14,7 +14,7 @@ import { tap } from 'rxjs';
 export class ShoppingCartComponent implements OnInit {
     productsQuantity$: Observable<number> = this.shoppingCartService.productsQuantity$;
     productsInCart$: Observable<Product[]> = this.shoppingCartService.productsInCart$;
-    // @Output() shoppEvent: EventEmitter<any> = new EventEmitter<any>()
+    // @Output() delProductEvent: EventEmitter<number> = new EventEmitter<number>()
 
     constructor(
         private shoppingCartService: ShoppingCartService,
@@ -35,5 +35,8 @@ export class ShoppingCartComponent implements OnInit {
         ).subscribe()
         return products
     }
-    // A este componente ponerle un modal xl, común (que se cierre al clickear por fuera de su contenedor), con la lista de elementos a comprar y la opción sobre cada uno para permitir eliminarlo y aumentarlo o disminuirlo en cantidad. Además, dos botones que permitan cerrar el modal o dirigirse al cajero
+
+    delProduct(id: number): void {
+        this.shoppingCartService.deleteProductInCart(id)
+    }
 }
