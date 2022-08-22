@@ -9,7 +9,7 @@
                 <p class="card-text">{{values.description}}</p>
                 <mat-form-field appearance="fill">
                     <mat-label>Cantidad</mat-label>
-                    <input matInput type="number" [(ngModel)]="values.quantity" #values.quantity="ngModel" min="1" max="{{values.stock}}">
+                    <input matInput type="number" [ngModel]="values.quantity" (ngModelChange)="updateQuantity({id: $event.id, quantity: $event.value})" #values.quantity="ngModel" min="1" max="{{values.stock}}" >
                     <!-- <span matSuffix>px</span> -->
                     <mat-error>Mínimo 1, máximo {{values.stock}}</mat-error>
                 </mat-form-field>

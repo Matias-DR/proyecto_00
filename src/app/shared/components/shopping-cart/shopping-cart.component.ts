@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../../interfaces/product';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { tap } from 'rxjs';
+import { ProductQuantityUpdater } from '../../interfaces/product-quantity-updater';
 
 
 @Component({
@@ -14,19 +15,16 @@ import { tap } from 'rxjs';
 export class ShoppingCartComponent implements OnInit {
     productsQuantity$: Observable<number> = this.shoppingCartService.productsQuantity$;
     productsInCart$: Observable<Product[]> = this.shoppingCartService.productsInCart$;
-    // @Output() delProductEvent: EventEmitter<number> = new EventEmitter<number>()
+    productsTotalPrice$: Observable<number> = this.shoppingCartService.productsTotalPrice$;
 
     constructor(
         private shoppingCartService: ShoppingCartService,
         private router: Router
     ) { }
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void { }
 
-    isProductsRoute(): boolean {
-        return this.router.url === '/shopping/products'
-    }
+    isProductsRoute(): boolean { return this.router.url === '/shopping/products' }
 
     getProductsInCart(): Product[] {
         let products!: Product[]
@@ -36,7 +34,7 @@ export class ShoppingCartComponent implements OnInit {
         return products
     }
 
-    delProduct(id: number): void {
-        this.shoppingCartService.deleteProductInCart(id)
-    }
+    delProduct(id: number): void { this.shoppingCartService.deleteProductInCart(id) }
+
+    updateProductQuantity(product: ProductQuantityUpdater): void { this.shoppingCartService.updateProductQuantityFromId(product) }
 }

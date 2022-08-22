@@ -1,0 +1,13 @@
+.container {
+    max-width: none;
+    border: 1px solid violet;
+}
+
+.col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 524px;
+    border: 1px solid red;
+    width: 18rem;
+}

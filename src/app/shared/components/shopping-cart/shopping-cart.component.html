@@ -7,7 +7,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Carro de compras</h5>
@@ -15,12 +15,24 @@
                 </div>
                 <div class="modal-body">
                     <ng-container *ngFor="let product of getProductsInCart()">
-                        <app-summary-product [values]="product" (delMeEvent)="delProduct($event)"></app-summary-product>
+                        <app-summary-product [values]="product" (delMeEvent)="delProduct($event)" (updateQuantityEvent)="updateProductQuantity($event)"></app-summary-product>
                     </ng-container>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                        [routerLink]="['/shopping/cashier']">Comprar</button>
+                    <div class="container text-center">
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <h6>Items: {{productsQuantity$ | async}}</h6>
+                            </div>
+                            <div class="col">
+                                <h6>Total a pagar: {{productsTotalPrice$ | async}}</h6>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                    [routerLink]="['/shopping/cashier']">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

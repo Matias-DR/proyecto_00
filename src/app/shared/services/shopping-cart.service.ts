@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from 'src/app/shared/interfaces/product'
+import { ProductQuantityUpdater } from '../interfaces/product-quantity-updater';
 
 @Injectable({
     providedIn: 'root'
@@ -49,6 +50,12 @@ export class ShoppingCartService {
         let index = this.products.findIndex((product: Product) => product.id === id)
         if (index === 0) this.products.shift()
         else this.products.splice(index, 1)
+        this.updateCart()
+    }
+
+    updateProductQuantityFromId(product: ProductQuantityUpdater): void {
+        // TODAVÍA NO FUNCIONA
+        this.products.find((_product: Product) => _product.id === product.id)!.quantity = product.quantity
         this.updateCart()
     }
 }
