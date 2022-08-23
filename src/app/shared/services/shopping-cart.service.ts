@@ -54,8 +54,12 @@ export class ShoppingCartService {
     }
 
     updateProductQuantityFromId(product: ProductQuantityUpdater): void {
-        // TODAVÍA NO FUNCIONA
-        this.products.find((_product: Product) => _product.id === product.id)!.quantity = product.quantity
+        // product VIENE CON VALOR undefined en cada atributo
+        console.log(product)
+        let p = this.products.find((_product: Product) => _product.id === product.id)
+        console.log('ANTES DE ACTUALIZAR', p?.quantity)
+        p!.quantity = product.quantity
+        console.log('DESPUÉS DE ACTUALIZAR', p?.quantity)
         this.updateCart()
     }
 }
