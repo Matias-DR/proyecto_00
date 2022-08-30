@@ -1,0 +1,20 @@
+.card {
+    width: 100%;
+    border: 1px red solid;
+}
+
+.price {
+    display: inline-block;
+}
+
+.text {
+    inline-size: min-content;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    width: 100%;
+    border: 1px red solid;
+}
+
+.description {
+    height: 66%
+}

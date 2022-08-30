@@ -40,8 +40,18 @@ export class ShoppingCartService {
         this._productsInCart.next(this.products)
     }
 
+    private searchProductById(_id: number): Product {
+        return this.products.find(({ id }) => id === _id)!
+    }
+
+    private validateProductQuantity(product: Product, quantity: number = 1): boolean {
+        try { return quantity <= product.stock && quantity >= 1 }
+        catch { return false }
+    }
+
     addProductToCart(product: Product): void {
-        try { this.products.find(({ id }) => id === product.id)!.quantity++ }
+        let p = this.searchProductById(product.id)
+        try { p.quantity < p.stock ? p!.quantity++ : '' }
         catch { this.products.push({ ...product, quantity: 1 }) }
         this.updateCart()
     }
@@ -54,12 +64,8 @@ export class ShoppingCartService {
     }
 
     updateProductQuantityFromId(product: ProductQuantityUpdater): void {
-        // product VIENE CON VALOR undefined en cada atributo
-        console.log(product)
-        let p = this.products.find((_product: Product) => _product.id === product.id)
-        console.log('ANTES DE ACTUALIZAR', p?.quantity)
-        p!.quantity = product.quantity
-        console.log('DESPUÉS DE ACTUALIZAR', p?.quantity)
+        let p = this.searchProductById(product.id)
+        this.validateProductQuantity(p, product.quantity) ? p!.quantity = product.quantity : console.log('Cantidad incorrecta')
         this.updateCart()
     }
 }

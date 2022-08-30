@@ -19,5 +19,8 @@ export class SummaryProductComponent implements OnInit {
 
     delMe(): void { this.delMeEvent.emit(this.values.id) }
 
-    updateQuantity(product: ProductQuantityUpdater): void { this.updateQuantityEvent.emit(product) }
+    updateQuantity(): void {
+        const productUpdate: ProductQuantityUpdater = { id: this.values.id, quantity: this.values.quantity }
+        this.updateQuantityEvent.emit(productUpdate)
+    }
 }

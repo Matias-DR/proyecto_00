@@ -37,4 +37,9 @@ export class ShoppingCartComponent implements OnInit {
     delProduct(id: number): void { this.shoppingCartService.deleteProductInCart(id) }
 
     updateProductQuantity(product: ProductQuantityUpdater): void { this.shoppingCartService.updateProductQuantityFromId(product) }
+
+    // PENDIENTE HACER
+    // goToCashier(): void {
+        // Habrá que hacer la validación de campos e ir a la caja
+    // }
 }
