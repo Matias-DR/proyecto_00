@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-cashier',
-  templateUrl: './cashier.component.html',
-  styleUrls: ['./cashier.component.scss']
+    selector: 'app-cashier',
+    templateUrl: './cashier.component.html',
+    styleUrls: ['./cashier.component.scss']
 })
 export class CashierComponent implements OnInit {
+    email = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
+    getErrorMessage() {
+        return this.email.hasError('required') ? 'You must enter a value' : this.email.hasError('email') ? 'Not a valid email' : ''
+    }
 }

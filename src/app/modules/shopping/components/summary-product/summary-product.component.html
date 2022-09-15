@@ -1,24 +1,3 @@
-<!-- <div class="card">
-    <div class="card-img-body">
-        <img src="{{values.images[0]}}" class="img-fluid rounded-start">
-    </div>
-    <div class="card-body">
-        <h5 class="card-title text">{{values.name}}</h5>
-        <p class="card-text text card-text--description">{{values.description}}</p>
-        <p class="card-text card-price">{{values.price | currency}}</p>
-        <mat-form-field appearance="fill">
-            <mat-label>Cantidad</mat-label>
-            <input matInput type="number" [(ngModel)]="values.quantity" (ngModelChange)="updateQuantity()"
-                #values.quantity="ngModel" min="1" max="{{values.stock}}">
-            <mat-error>Mínimo 1, máximo {{values.stock}}</mat-error>
-        </mat-form-field>
-        <p class="card-text card-price">{{values.price * values.quantity | currency}}</p>
-        <button mat-icon-button (click)="delMe()">
-            <mat-icon>delete</mat-icon>
-        </button>
-    </div>
-</div> -->
-
 <div class="card mb-3">
     <div class="row no-gutters">
         <div class="col-md-4">
@@ -28,17 +7,19 @@
             <div class="card-body">
                 <h5 class="card-title text">{{values.name}}</h5>
                 <p class="card-text text description">{{values.description}}</p>
-                <p class="card-text price">{{values.price | currency}}</p>
-                <mat-form-field appearance="fill">
-                    <mat-label>Cantidad</mat-label>
-                    <input matInput type="number" [(ngModel)]="values.quantity" (ngModelChange)="updateQuantity()"
-                        #values.quantity="ngModel" min="1" max="{{values.stock}}">
-                    <mat-error>Mínimo 1, máximo {{values.stock}}</mat-error>
-                </mat-form-field>
-                <p class="card-text price">{{values.price * values.quantity | currency}}</p>
-                <button mat-icon-button (click)="delMe()">
-                    <mat-icon>delete</mat-icon>
-                </button>
+                <div class="card-footer">
+                    <p class="card-text price">{{values.price | currency}}</p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Cantidad</mat-label>
+                        <input matInput type="number" [(ngModel)]="values.quantity" (ngModelChange)="updateQuantity()"
+                            #values.quantity="ngModel" min="1" max="{{values.stock}}">
+                        <mat-error>Mínimo 1, máximo {{values.stock}}</mat-error>
+                    </mat-form-field>
+                    <p class="card-text price">{{values.price * values.quantity | currency}}</p>
+                    <button mat-icon-button (click)="delMe()">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
