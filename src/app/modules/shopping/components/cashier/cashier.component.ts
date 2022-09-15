@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import { Product } from 'src/app/shared/interfaces/product';
 
 @Component({
     selector: 'app-cashier',
@@ -7,6 +8,7 @@ import {FormControl, Validators} from '@angular/forms';
     styleUrls: ['./cashier.component.scss']
 })
 export class CashierComponent implements OnInit {
+    products!: Product[];
     email = new FormControl('', [Validators.required, Validators.email]);
 
     constructor() { }

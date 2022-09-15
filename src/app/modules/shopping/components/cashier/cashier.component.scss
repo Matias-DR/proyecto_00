@@ -1,3 +1,9 @@
-.example-container .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
+.form-container {
+    width: 100%;
+}
+
+.form-container .mat-form-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

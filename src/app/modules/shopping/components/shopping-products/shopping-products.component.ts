@@ -21,6 +21,7 @@ export class ShoppingProductsComponent implements OnInit {
         this.getProducts();
     }
 
+    // Trabajar en mover esto al servicio shopping cart, porque se repite en varios componentes
     getProducts(): void {
         this.productService.getProducts().pipe(
             tap((res: Product[]) => this.products = res)
